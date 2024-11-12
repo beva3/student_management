@@ -1,0 +1,65 @@
+{
+    "clients": [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "phone": "+1 123 456 7890"
+      },
+      {
+        "id": 2,
+        "name": "Jane Smith",
+        "email": "jane.smith@example.com",
+        "phone": "+1 987 654 3210"
+      },
+      {
+        "id": 3,
+        "name": "Robert Brown",
+        "email": "robert.brown@example.com",
+        "phone": "+1 555 678 1234"
+      },
+      {
+        "id": 4,
+        "name": "Emily Davis",
+        "email": "emily.davis@example.com",
+        "phone": "+1 222 333 4444"
+      },
+      {
+        "id": 5,
+        "name": "Michael Johnson",
+        "email": "michael.johnson@example.com",
+        "phone": "+1 111 222 3333"
+      },
+      {
+        "id": 6,
+        "name": "Sarah Lee",
+        "email": "sarah.lee@example.com",
+        "phone": "+1 444 555 6666"
+      },
+      {
+        "id": 7,
+        "name": "David Wilson",
+        "email": "david.wilson@example.com",
+        "phone": "+1 777 888 9999"
+      },
+      {
+        "id": 8,
+        "name": "Emma Thompson",
+        "email": "emma.thompson@example.com",
+        "phone": "+1 666 777 8888"
+      },
+      {
+        "id": 9,
+        "name": "Chris Martinez",
+        "email": "chris.martinez@example.com",
+        "phone": "+1 333 444 5555"
+      },
+      {
+        "id": 10,
+        "name": "Anna Garcia",
+        "email": "anna.garcia@example.com",
+        "phone": "+1 999 000 1111"
+      }
+    ]
+  }
+  
