@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            margin: 20px;
+        }
+        h1 {
+            color: #c678dd; /* Purple Accent */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #30363d;
+        }
+        th {
+            background-color: #161b22;
+            color: #e06c75; /* Red Accent */
+        }
+        tr:nth-child(even) {
+            background-color: #161b22;
+        }
+        tr:nth-child(odd) {
+            background-color: #0d1117;
+        }
+        tr:hover {
+            background-color: #21262d; /* Hover Effect */
+        }
+        a {
+            color: #98c379; /* Green Accent */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .highlight {
+            color: #61afef; /* Blue Accent */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Client List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+    <tbody>
+        <tr>
+            <td class="highlight">1</td>
+            <td>John Doe</td>
+            <td><a href="mailto:john.doe@example.com">john.doe@example.com</a></td>
+            <td>+1 123 456 7890</td>
+        </tr>
+        <tr>
+            <td class="highlight">2</td>
+            <td>Jane Smith</td>
+            <td><a href="mailto:jane.smith@example.com">jane.smith@example.com</a></td>
+            <td>+1 987 654 3210</td>
+        </tr>
+        <tr>
+            <td class="highlight">3</td>
+            <td>Robert Brown</td>
+            <td><a href="mailto:robert.brown@example.com">robert.brown@example.com</a></td>
+            <td>+1 555 678 1234</td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
