@@ -8,16 +8,19 @@ class Client{
         this.phone = phone;
     }
     
-    // displays client information
-    display(){
-        const tableBody = document.getElementById('clientTableBody')
-        let rows = document.createElement("tr");
-        rows.innerHTML = `
+    getRows(){
+        return `
             <td class="highlight">${this.id}</td>
             <td>${this.name}</td>
             <td><a href="mailto:${this.email}">${this.email}</a></td>
             <td>${this.phone}</td>
         `;
+    }
+    // displays client information
+    display(){
+        const tableBody = document.getElementById('clientTableBody')
+        let rows = document.createElement("tr");
+        rows.innerHTML = this.getRows();
         // rows.classList.add('hightlight');
         tableBody.appendChild(rows);
     }
