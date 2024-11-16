@@ -50,10 +50,49 @@
             color: #61afef; /* Blue Accent */
             font-weight: bold;
         }
+        .controls {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        }
+
+        button, input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        /* Button styling */
+        button {
+            background-color: #58a6ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0066cc;
+        }
+
+        /* Search bar styling */
+        input[type="text"] {
+            width: 60%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
     <h1>Client List</h1>
+    <div class="controls">
+        <!-- Button to add a student -->
+        <button id="addStudentBtn">Add Student</button>
+
+        <!-- Search bar for searching students -->
+        <input type="text" id="searchBar" placeholder="Search for students...">
+    </div>
     <table class="clientTable">
         <thead>
             <tr>
@@ -61,27 +100,46 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
+                <th>Action</th>
             </tr>
         </thead>
     <tbody id="clientTableBody">
-        <!-- <tr>
+        <tr>
             <td class="highlight">1</td>
             <td>John Doe</td>
             <td><a href="mailto:john.doe@example.com">john.doe@example.com</a></td>
             <td>+1 123 456 7890</td>
+            <td class="action">
+                <div class="btn">
+                    <button class="editBtn">Edit</button>
+                    <button class="deleteBtn">Delete</button>
+                </div>
+            </td>
         </tr>
         <tr>
             <td class="highlight">2</td>
             <td>Jane Smith</td>
             <td><a href="mailto:jane.smith@example.com">jane.smith@example.com</a></td>
             <td>+1 987 654 3210</td>
+            <td class="action">
+                <div class="btn">
+                    <button class="editBtn">Edit</button>
+                    <button class="deleteBtn">Delete</button>
+                </div>
+            </td>
         </tr>
         <tr>
             <td class="highlight">3</td>
             <td>Robert Brown</td>
             <td><a href="mailto:robert.brown@example.com">robert.brown@example.com</a></td>
             <td>+1 555 678 1234</td>
-        </tr> -->
+            <td class="action">
+                <div class="btn">
+                    <button class="editBtn">Edit</button>
+                    <button class="deleteBtn">Delete</button>
+                </div>
+            </td>
+        </tr>
         </tbody>
     </table>
 </body>
