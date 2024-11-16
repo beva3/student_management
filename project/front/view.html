@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Client List</title>
     <!-- <script src="./client.js" defer></script> -->
      <script src="./client.js" defer></script>
@@ -51,44 +52,155 @@
             font-weight: bold;
         }
         .controls {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+
+            button, input {
+                padding: 10px;
+                font-size: 16px;
+                border-radius: 5px;
+            }
+
+            button {
+                background-color: #58a6ff;
+                color: white;
+                border: none;
+                cursor: pointer;
+                padding: 15px 30px; /* Adjust the padding for bigger button size */
+                font-size: 18px; /* Larger font size for readability */
+                border-radius: 10px; /* Rounded corners */
+                width: auto; /* Let the width adjust based on the content */
+                min-width: 200px; /* Minimum width for the button */
+                text-align: center;
+                transition: background-color 0.3s ease;
+            }
+            input[type="text"] {
+                width: 100%; /* Full width for better usability */
+                max-width: 500px; /* Max width to prevent it from getting too large */
+                height: 30px; /* Taller input field */
+                padding: 10px 15px; /* Adjust the padding for a better appearance */
+                font-size: 18px; /* Larger font for better readability */
+                border: 2px solid #ccc;
+                border-radius: 10px; /* Rounded corners */
+                background-color: #333; /* Dark background for the input */
+                color: white; /* White text inside the input field */
+                transition: border 0.3s ease;
+            }
         }
 
-        button, input {
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-        }
+        
 
         /* Button styling */
-        button {
-            background-color: #58a6ff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
+        
 
-        button:hover {
+        .controls button:hover {
             background-color: #0066cc;
         }
 
-        /* Search bar styling */
-        input[type="text"] {
-            width: 60%;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        
+
+        .controls input[type="text"]:focus {
+            border-color: #58a6ff; /* Highlight border on focus */
+            outline: none; /* Remove the default focus outline */
+        }
+        .editBtn, .deleteBtn{
+            cursor: pointer;
+            background-color: #ccc;
+            color: black;
+            border: none;
             padding: 10px;
             font-size: 16px;
+            border-radius: 5px;
+            margin-left: 10px;
         }
+        .editBtn{
+            background-color: rgb(58, 195, 58);
+        }
+        .deleteBtn{
+            background-color: rgba(235, 67, 24, 0.782);
+        }
+        .editBtn:hover, .deleteBtn:hover{
+            box-shadow: 2px 3px 3px 3px rgba(236, 236, 227, 0.765);
+        }
+        .action div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .add-a-new-student,
+        .edit{
+            width: 500px;
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+            label {
+                color: #e1e4e8;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+            input[type="text"],
+            input[type="email"] {
+                padding: 10px;
+                margin-bottom: 15px;
+                font-size: 16px;
+                border: 2px solid #ccc;
+                border-radius: 5px;
+                background-color: #444;
+                color: white;
+            }
+
+            input[type="text"]:focus, input[type="email"]:focus {
+                border-color: #58a6ff;
+                outline: none;
+            }
+
+            /* Button styling */
+            .controls {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            button {
+                padding: 12px 20px;
+                font-size: 16px;
+                border-radius: 5px;
+                width: 48%;
+                cursor: pointer;
+            }
+
+            #saveBtn {
+                background-color: #58a6ff;
+                color: white;
+                border: none;
+            }
+
+            #saveBtn:hover {
+                background-color: #0066cc;
+            }
+
+            #cancelBtn {
+                background-color: #ff4c4c;
+                color: white;
+                border: none;
+            }
+
+            #cancelBtn:hover {
+                background-color: #cc0000;
+            }
+        }
+        
     </style>
 </head>
 <body>
     <h1>Client List</h1>
     <div class="controls">
         <!-- Button to add a student -->
-        <button id="addStudentBtn">Add Student</button>
+        <button id="addStudentBtn">
+            <i class="fas fa-user-plus"></i> Add Student
+        </button>
 
         <!-- Search bar for searching students -->
         <input type="text" id="searchBar" placeholder="Search for students...">
@@ -142,5 +254,60 @@
         </tr>
         </tbody>
     </table>
+
+    <div class="pagination-container">
+        <button id="firstPage" onclick="changePage('first')">First</button>
+        <button id="prevPage" onclick="changePage(-1)">Prev</button>
+        <span id="pageNumber">Page 1</span>
+        <button id="nextPage" onclick="changePage(1)">Next</button>
+        <button id="lastPage" onclick="changePage('last')">Last</button>
+        <select id="rowsPerPage" onchange="updateRowsPerPage()">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="20">20</option>
+        </select>
+    </div>
+
+    <div class="add-a-new-student">
+        <h2>Add a New Student</h2>
+        
+        <!-- Form for adding a student -->
+        <form id="addStudentForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Enter student name">
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="Enter student email">
+            
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" name="phone" required placeholder="Enter student phone number">
+            
+            <div class="controls">
+                <button type="submit" id="saveBtn">Save</button>
+                <button type="button" id="cancelBtn">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="edit">
+        <h2>Edit Student</h2>
+        
+        <!-- Form for adding a student -->
+        <form id="addStudentForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Enter student name">
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="Enter student email">
+            
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" name="phone" required placeholder="Enter student phone number">
+            
+            <div class="controls">
+                <button type="submit" id="saveBtn">Save</button>
+                <button type="button" id="cancelBtn">Cancel</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
