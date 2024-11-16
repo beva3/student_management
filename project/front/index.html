@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#students">Students</a></li>
+                <li><a href="#addStudent">Add Student</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dashboard">
+            <h2>Welcome to the Student Management System</h2>
+            <p>Manage all student information from here!</p>
+        </section>
+
+        <section id="students">
+            <h2>All Students</h2>
+            <!-- List of students will be dynamically generated here -->
+            <div id="studentList"></div>
+        </section>
+
+        <section id="addStudent">
+            <h2>Add New Student</h2>
+            <form id="studentForm">
+                <input type="text" id="studentName" placeholder="Student Name" required>
+                <input type="email" id="studentEmail" placeholder="Student Email" required>
+                <input type="text" id="studentPhone" placeholder="Student Phone" required>
+                <button type="submit">Add Student</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Student Management System</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
