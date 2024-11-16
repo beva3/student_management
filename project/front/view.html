@@ -104,12 +104,14 @@
             border-color: #58a6ff; /* Highlight border on focus */
             outline: none; /* Remove the default focus outline */
         }
-        .editBtn, .deleteBtn{
+        .editBtn, 
+        .deleteBtn,
+        .detailBtn{
             cursor: pointer;
             background-color: #ccc;
             color: black;
             border: none;
-            padding: 10px;
+            padding: 9px;
             font-size: 16px;
             border-radius: 5px;
             margin-left: 10px;
@@ -191,7 +193,37 @@
                 background-color: #cc0000;
             }
         }
-        
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            font-size: 14px;
+
+            button {
+                padding: 8px 12px;
+                margin: 0 5px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            button:disabled {
+                background-color: #ccc;
+                cursor: not-allowed;
+            }
+            #pageNumber {
+                font-size: 16px;
+                color: #20e911;
+            }
+
+            #rowsPerPage {
+                margin-left: 10px;
+                padding: 5px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -223,6 +255,7 @@
             <td>+1 123 456 7890</td>
             <td class="action">
                 <div class="btn">
+                    <button class="detailBtn">Detail</button>
                     <button class="editBtn">Edit</button>
                     <button class="deleteBtn">Delete</button>
                 </div>
@@ -235,6 +268,7 @@
             <td>+1 987 654 3210</td>
             <td class="action">
                 <div class="btn">
+                    <button class="detailBtn">Detail</button>
                     <button class="editBtn">Edit</button>
                     <button class="deleteBtn">Delete</button>
                 </div>
@@ -247,18 +281,111 @@
             <td>+1 555 678 1234</td>
             <td class="action">
                 <div class="btn">
+                    <button class="detailBtn">Detail</button>
                     <button class="editBtn">Edit</button>
                     <button class="deleteBtn">Delete</button>
                 </div>
             </td>
         </tr>
+        <tr>
+            <td class="highlight">4</td>
+            <td>Emma Wilson</td>
+            <td><a href="mailto:emma.wilson@example.com">emma.wilson@example.com</a></td>
+            <td>+1 234 567 8901</td>
+            <td class="action">
+                <div class="btn">
+                    <button class="detailBtn">Detail</button>
+                    <button class="editBtn">Edit</button>
+                    <button class="deleteBtn">Delete</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="highlight">5</td>
+            <td>Michael Harris</td>
+            <td><a href="mailto:michael.harris@example.com">michael.harris@example.com</a></td>
+            <td>+1 234 678 1234</td>
+            <td class="action">
+                <div class="btn">
+                    <button class="detailBtn">Detail</button>
+                    <button class="editBtn">Edit</button>
+                    <button class="deleteBtn">Delete</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="highlight">6</td>
+            <td>Amy Lee</td>
+            <td><a href="mailto:amy.lee@example.com">amy.lee@example.com</a></td>
+            <td>+1 987 654 3210</td>
+            <td class="action">
+                <div class="btn">
+                    <button class="detailBtn">Detail</button>
+                    <button class="editBtn">Edit</button>
+                    <button class="deleteBtn">Delete</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="highlight">7</td>
+            <td>David Clark</td>
+            <td><a href="mailto:david.clark@example.com">david.clark@example.com</a></td>
+            <td>+1 555 123 4567</td>
+            <td class="action">
+                <div class="btn">
+                    <button class="detailBtn">Detail</button>
+                    <button class="editBtn">Edit</button>
+                    <button class="deleteBtn">Delete</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="highlight">8</td>
+            <td>Sophia Taylor</td>
+            <td><a href="mailto:sophia.taylor@example.com">sophia.taylor@example.com</a></td>
+            <td>+1 345 678 9012</td>
+            <td class="action">
+                <div class="btn">
+                    <button class="detailBtn">Detail</button>
+                    <button class="editBtn">Edit</button>
+                    <button class="deleteBtn">Delete</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="highlight">9</td>
+            <td>James Martin</td>
+            <td><a href="mailto:james.martin@example.com">james.martin@example.com</a></td>
+            <td>+1 765 432 1098</td>
+            <td class="action">
+                <div class="btn">
+                    <button class="detailBtn">Detail</button>
+                    <button class="editBtn">Edit</button>
+                    <button class="deleteBtn">Delete</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="highlight">10</td>
+            <td>Olivia Jackson</td>
+            <td><a href="mailto:olivia.jackson@example.com">olivia.jackson@example.com</a></td>
+            <td>+1 555 987 6543</td>
+            <td class="action">
+                <div class="btn">
+                    <button class="detailBtn">Detail</button>
+                    <button class="editBtn">Edit</button>
+                    <button class="deleteBtn">Delete</button>
+                </div>
+            </td>
+        </tr>
+        
         </tbody>
     </table>
 
     <div class="pagination-container">
         <button id="firstPage" onclick="changePage('first')">First</button>
         <button id="prevPage" onclick="changePage(-1)">Prev</button>
-        <span id="pageNumber">Page 1</span>
+        <span id="pageNumber">Page 1/20</span>
         <button id="nextPage" onclick="changePage(1)">Next</button>
         <button id="lastPage" onclick="changePage('last')">Last</button>
         <select id="rowsPerPage" onchange="updateRowsPerPage()">
