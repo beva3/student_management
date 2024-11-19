@@ -58,11 +58,6 @@ class ClientManagement{
         client.phone = new_phone;
     }
     display(){
-        const tableBody = document.getElementById('clientTableBody')
-        if(!tableBody){
-            console.error('Table body not found');
-            return;
-        }
         this.clients.forEach(client => client.display());  // display each client's information
     }
 }
