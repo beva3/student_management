@@ -1,4 +1,15 @@
-// JSON data
+const btn_add = document.getElementById('add');
+const btn_edit = document.querySelectorAll('.editBtn');
+const btn_delete = document.getElementsByClassName('deleteBtn');
+btn_add.addEventListener('click', () =>{
+    alert('Please enter client');
+})
+
+// btn_edit.addClientEventListener('click', () =>{
+//     alert('Please select client to edit');
+// })
+console.log(btn_edit)
+
 class Client{
     constructor(id, name, email, phone){
         if(!id ||!name ||!email ||!phone){
@@ -6,7 +17,7 @@ class Client{
             return;  // exit the constructor if any required field is missing.
         }
         this.id = id;
-        this.name = name;
+        this.name = name;   
         this.email = email;
         this.phone = phone;
     }
@@ -87,7 +98,7 @@ clients = [
 s_m = new ClientManagement()
 clients.forEach(client => s_m.addClient(client))
 s_m.update(2,"client","client@example.com","1234567890")
-s_m.delete(4)
+// s_m.delete(4)
 
 s_m.display()
 
