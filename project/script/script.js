@@ -57,6 +57,20 @@ class ClientManagement{
         client.email = new_email
         client.phone = new_phone;
     }
+
+    delete(clientId){
+        // Find the index of the client with the given ID
+        const clientIndex = this.clients.findIndex(client => client.id === clientId);
+
+        if (clientIndex !== -1) {
+            // Remove the client from the array using splice
+            const deletedClient = this.clients.splice(clientIndex, 1);
+            console.log(`Client ${deletedClient[0].name} deleted successfully.`);
+        } else {
+            console.log(`Client with ID ${clientId} not found.`);
+        }
+    }
+
     display(){
         this.clients.forEach(client => client.display());  // display each client's information
     }
@@ -73,6 +87,7 @@ clients = [
 s_m = new ClientManagement()
 clients.forEach(client => s_m.addClient(client))
 s_m.update(2,"client","client@example.com","1234567890")
+s_m.delete(4)
 
 s_m.display()
 
