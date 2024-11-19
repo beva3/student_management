@@ -40,8 +40,31 @@ class Client{
     }
 }
 
-function display_all(Clients){
-    Clients.forEach(client => client.display()); 
+class ClientManagement{
+    constructor(){
+        this.clients = [];
+    }
+    addClient(client){
+        this.clients.push(client);
+    }
+    update(id,new_name, new_email, new_phone){
+        const client = this.clients.find(c => c.id === id);
+        if(!client){
+            console.error('Client not found');
+            return;
+        }
+        client.name = new_name;
+        client.email = new_email
+        client.phone = new_phone;
+    }
+    display(){
+        const tableBody = document.getElementById('clientTableBody')
+        if(!tableBody){
+            console.error('Table body not found');
+            return;
+        }
+        this.clients.forEach(client => client.display());  // display each client's information
+    }
 }
 
 clients = [
@@ -52,4 +75,10 @@ clients = [
     new Client(5, 'Emily White', 'emily.white@example.com', '111-222-3333')
 ]
 
-display_all(clients);
+s_m = new ClientManagement()
+clients.forEach(client => s_m.addClient(client))
+s_m.update(2,"client","client@example.com","1234567890")
+
+s_m.display()
+
+// display_all(clients);
