@@ -5,9 +5,11 @@ btn_add.addEventListener('click', () =>{
     alert('Please enter client');
 })
 
-// btn_edit.addClientEventListener('click', () =>{
-//     alert('Please select client to edit');
-// })
+btn_edit.forEach(button => {
+    button.addEventListener('click', () => {
+        alert('Please select client to edit');
+    });
+});
 console.log(btn_edit)
 
 class Client{
