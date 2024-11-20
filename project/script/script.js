@@ -82,6 +82,15 @@ class ClientManagement{
         }
     }
 
+    search(nameClient){
+        const foundClients = this.clients.filter(client => client.name.includes(nameClient));
+        if(foundClients.length === 0){
+            console.log('No clients found');
+            return;
+        }
+        foundClients.forEach(client => client.display());  // display each found client's information
+    }
+
     display(){
         this.clients.forEach(client => client.display());  // display each client's information
     }
@@ -98,6 +107,7 @@ clients = [
 s_m = new ClientManagement()
 clients.forEach(client => s_m.addClient(client))
 s_m.update(2,"client","client@example.com","1234567890")
+s_m.search("John Doe")
 // s_m.delete(4)
 
 s_m.display()
